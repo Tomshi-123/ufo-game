@@ -1,0 +1,117 @@
+* {
+    margin: 0; /* Tar bort standardmarginaler från alla element */
+    padding: 0; /* Tar bort standardpadding från alla element */
+    box-sizing: border-box; /* Gör så att padding och border inkluderas i elementets totala bredd och höjd */
+}
+
+.scene {
+    position: relative; /* Gör att barn kan placeras relativt till denna container */
+    width: 100%; /* Tar upp hela bredden av webbläsarfönstret */
+    height: 100vh; /* Tar upp hela höjden av webbläsarfönstret */
+    background: #01070a; /* Mörk bakgrund som liknar en natthimmel */
+    overflow: hidden; /* Förhindrar att innehåll (t.ex. stjärnor) sträcker sig utanför */
+    display: flex; /* Använder flexbox för att centrera innehåll */
+    justify-content: center; /* Centrerar innehåll horisontellt */
+    align-items: center; /* Centrerar innehåll vertikalt */
+}
+
+.scene i {
+    position: absolute; /* Gör att stjärnorna kan placeras fritt inom .scene */
+    top: -250px; /* Startar utanför vyn ovanför skärmen */
+    background: rgba(216, 49, 246, 0.584); /* Halvtransparent vit färg för att skapa stjärnliknande effekt */
+    animation: animateStars linear infinite; /* Applicerar en oändlig animation på stjärnorna */
+}
+
+@keyframes animateStars {
+    0% {
+        transform: translateY(0); /* Stjärnan börjar på sin ursprungliga position */
+    }
+    100% {
+        transform: translateY(100vh); /* Stjärnan rör sig nedåt och försvinner från skärmen */
+    }
+}
+
+.scene img {
+    height: 60px; /* Sätter höjden på raketbilden */
+}
+
+.scene .rocket {
+    position: relative; /* Håller raketen i relation till sin normala position */
+    animation: animate 0.2s ease infinite; /* Applicerar en evig animation för att få raketen att röra sig lite */
+}
+
+
+.scene .rocket::before {
+    content: ''; /* Pseudoelement för att skapa en låga under raketen */
+    position: absolute; /* Gör att det kan placeras exakt */
+    bottom: -200px; /* Lågan börjar en bit under raketen */
+    left: 50%; /* Centrerar lågan horisontellt i förhållande till raketen */
+    transform: translateX(-50%); /* Justerar positionen perfekt i mitten */
+    width: 10px; /* Sätter lågans bredd */
+    height: 200px; /* Sätter lågans höjd */
+    background: linear-gradient(#00d0ff, transparent); /* Skapar en blå låga som tonas ut */
+}
+
+.scene .rocket::after {
+    content: ''; /* Ett extra pseudoelement för att skapa en glödande effekt */
+    position: absolute; /* Möjliggör exakt placering */
+    bottom: -200px; /* Börjar samma plats som lågan */
+    left: 50%; /* Centrerar glöden horisontellt */
+    transform: translateX(-50%); /* Justerar positionen perfekt i mitten */
+    width: 10px; /* Samma bredd som lågan */
+    height: 200px; /* Samma höjd som lågan */
+    background: linear-gradient(#00d0ff, transparent); /* Samma gradient för att matcha lågan */
+    filter: blur(20px); /* Ger en suddig, lysande effekt för att simulera en energisk låga */
+}
+
+
+.scene img {
+    height: 60px;
+}
+
+.scene .rocket {
+    position: absolute;
+    pointer-events: none;
+    animation: animate 0.2s ease infinite;;
+}
+
+@keyframes animate {
+    0%, 100% {
+        transform: translateY(-52px) translateX(-50%);
+    }
+    50% {
+        transform: translateY(-48px) translateX(-50%);
+    }
+}
+
+.scene .rocket::before {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 200px;
+    background: linear-gradient(#00d0ff, transparent);
+}
+
+.scene .rocket::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 200px;
+    background: linear-gradient(#00d0ff, transparent);
+    filter: blur(20px);
+}
+
+.scene:active .rocket::before, 
+.scene:active .rocket::after {
+    background: linear-gradient(rgb(254, 110, 254), transparent);
+
+    bottom: -300px;
+    height: 300px;
+    filter: blur(2px);
+}
