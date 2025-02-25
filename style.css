@@ -120,6 +120,6 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: gray;
+    background-image: url("bilder/sten.jpg");
     border-radius: 50%;
 }

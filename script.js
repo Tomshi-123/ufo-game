@@ -73,6 +73,7 @@ function moveRocks() {
             rock.remove(); // Tar bort stenen från DOM
             rocks.splice(index, 1); // Tar bort stenen från vår array
         }
+
     });
 
     requestAnimationFrame(moveRocks); // Upprepar funktionen för att uppdatera rörelsen
@@ -94,3 +95,4 @@ function checkCollision(rocket, rock) {
 // Startar spelet
 setInterval(createRock, 1000); // Skapar en ny sten varje sekund
 moveRocks(); // Startar stenarnas rörelse
+
