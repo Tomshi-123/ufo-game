@@ -1,5 +1,5 @@
-# Mitt Projekt
+# Ufo-game
 
 Välkommen till mitt projekt! Du kan kolla på koden här:
 
-[GitHub Repository](https://github.com/Tomshi-123/ufo-game)
+<a href="https://github.com/Tomshi-123/ufo-game">Länk till repository</a>
